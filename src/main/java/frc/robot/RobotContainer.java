@@ -133,8 +133,8 @@ public class RobotContainer {
      * POV is a direction on the D-Pad or directional arrow pad of the controller,
      * the direction of this will be different depending on how your winch is wound
      */
-    m_operatorController.pov(0).whileTrue(new ClimberUpCommand(m_climber));
-    m_operatorController.pov(180).whileTrue(new ClimberDownCommand(m_climber));
+    m_operatorController.povUp().whileTrue(new ClimberUpCommand(m_climber));
+    m_operatorController.povDown().whileTrue(new ClimberDownCommand(m_climber));
   }
 
   /**
