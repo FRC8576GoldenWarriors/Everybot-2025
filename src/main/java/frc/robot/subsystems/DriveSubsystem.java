@@ -10,7 +10,6 @@ import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.config.SparkMaxConfig;
 
-
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.DriveConstants;
@@ -67,7 +66,10 @@ public class DriveSubsystem extends SubsystemBase {
     // Set conifg to inverted and then apply to left leader. Set Left side inverted
     // so that postive values drive both sides forward
     config.inverted(true);
+    //rightLeader.setInverted(true);
+    //leftLeader.setInverted(false);
     leftLeader.configure(config, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
+ 
   }
 
   @Override
@@ -98,6 +100,6 @@ public class DriveSubsystem extends SubsystemBase {
    * @param squared do you square the inputs from the controller 
    */
   public void driveTank(double leftSpeed, double rightSpeed, boolean squared){
-    drive.tankDrive(leftSpeed, rightSpeed, squared);
+    drive.tankDrive(-leftSpeed, rightSpeed, squared);
   }
 }
